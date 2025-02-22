@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export", // ✅ This makes Next.js generate static files for GitHub Pages
+  images: {
+    unoptimized: true, // ✅ GitHub Pages does not support Next.js image optimization
+  },
+  basePath: "/MyPortfolio", // ✅ Set this to your repository name (IMPORTANT)
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
