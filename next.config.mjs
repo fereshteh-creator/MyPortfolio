@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // ✅ GitHub Pages does not support Next.js image optimization
   },
-  basePath: "/MyPortfolio", // ✅ Set this to your repository name (IMPORTANT)
+  basePath: process.env.NODE_ENV === "production" ? "/MyPortfolio" : "", // ✅ Set this to your repository name (IMPORTANT)
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
